@@ -1,0 +1,33 @@
+body {
+  background-color: #87CEFA;
+}
+
+h1 {
+    margin-left: 1.5rem;
+    font-size: 50px;
+    font-family: "Tangerine", cursive;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.Navbar {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    height: 7.5rem;
+    align-items: center;
+    border-radius: 1.5rem;
+    opacity: 80%;
+    gap: 2rem;
+    font-size: 16px;
+    font-family: "open sans", sans-serif;
+    font-weight: bold;
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.Login-container {
+    margin-left: 40rem;
+}
