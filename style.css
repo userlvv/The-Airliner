@@ -106,40 +106,92 @@ h1 {
 
 .Ourjet-content {
     display: flex;
+    flex-direction: row;
+
     justify-content: space-between;
-   justify-self: center;
+    gap: 3rem;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    width: 90%;
     height: 35rem;
-    width: 80%;
     margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2rem;
     background-color: white;
     border-radius: 25px;
     opacity: 80%;
 }
 
+.flights-section {
+    display: flex;
+    flex-direction: column;
+}
+
 .Ourjet-title {
-    margin: 0;
-    padding: 0;
+    display: flex;
+    align-self: flex-start;
     color: black;
     font-size: 1.75rem;
-    margin-left: 3rem;
 }
 
 .Privateflight-title {
-    margin: 0;
-    padding: 0;
+    display: flex;
+    align-self: flex-end;
     color: black;
     font-size: 1.75rem;
-    margin-right: 3rem;
+}
+
+.Ourjet-images {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
 .Ourjet-images img {
-    height: 3.125rem;
-    width: 3.125rem;
+    height: 12rem;
+    width: 12rem;
+    border-radius: 10px;
+    margin-top: 2rem;
 }
 
-.Secondarycontent-boxes {
+.Privateflight-images {
     display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.Privateflight-images img {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 10px;
+     margin-top: 2rem;
+}
+
+.jet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jet-name {
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+    font-family: "open sans", sans-serif;
+}
+
+.flight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flight-name {
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+    font-family: "open sans", sans-serif;
 }
