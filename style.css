@@ -50,7 +50,7 @@ h1 {
     width: 40rem;
     height: 16.5625rem;
     border-radius: 1.5625rem;
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.93);
     opacity: 80%;
 }
 
@@ -65,7 +65,7 @@ h1 {
     width: 40rem;
     height: 16.5625rem;
     border-radius: 1.5625rem;
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.93);
     opacity: 80%;
 }
 
@@ -80,7 +80,7 @@ h1 {
     width: 40rem;
     height: 16.5625rem;
     border-radius: 1.5625rem;
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.93);
     opacity: 80%;
 }
 
@@ -95,7 +95,7 @@ h1 {
     width: 40rem;
     height: 16.5625rem;
     border-radius: 1.5625rem;
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.93);
     opacity: 80%;
 }
 
@@ -107,7 +107,6 @@ h1 {
 .Ourjet-content {
     display: flex;
     flex-direction: row;
-
     justify-content: space-between;
     gap: 3rem;
     font-family: "Montserrat", sans-serif;
@@ -118,7 +117,7 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     padding: 2rem;
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.93);
     border-radius: 25px;
     opacity: 80%;
 }
@@ -167,13 +166,18 @@ h1 {
     height: 12rem;
     width: 12rem;
     border-radius: 10px;
-     margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .jet-item {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.jet-item a {
+    text-decoration: none;
 }
 
 .jet-name {
@@ -194,4 +198,53 @@ h1 {
     font-size: 1rem;
     text-align: center;
     font-family: "open sans", sans-serif;
+}
+
+.all-inclusive-content {
+    background-color: rgba(238, 238, 238, 0.93);
+    padding: 30px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    width: 90%;
+    height: 35rem;
+    opacity: 80%;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.Allin-title {
+    display: flex;
+    align-self: flex-start;
+    color: black;
+    font-size: 1.75rem;
+}
+
+.items-grid {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.left-items {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.item {
+    background-color: white;
+    height: 500px;
+    width: 300px;
+    border-radius: 25px;
+}
+
+.big-item {
+    width: 750px;
+    height: auto;
+    margin-left: 1rem;
 }
