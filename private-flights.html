@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Airliner</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap');
     </style>
@@ -18,61 +19,19 @@
 </head>
 
 <body>
-    <div class="Navbar">
-        <h1><a href="index.html">The Airliner</a></h1>
-        <a href="index.html">Home</a>
-        <a href="travel.html">Travel</a>
-        <a href="all-inclusive.html">All inclusive</a>
-        <a href="flights.html">Flights</a>
-        <a href="private-flights.html">Private flights</a>
-        <div class="Login-container">
-            <a href="login.html">Login</a>
-        </div>
-    </div>
 
-    <div class="Ourjet-content">
-        <div class="jets-section">
-            <span class="Ourjet-title">Our Private Jets</span>
-            <div class="Ourjet-images">
-                <div class="jet-item">
-                    <a href="https://bombardier.com/en/aircraft/global-8000#bba-pdp-section-2" target="_blank">
-                        <img src="Images/Global8000.jpg" alt="G8000">
-                        <p class="jet-name">Bombardier Global 8000</p>
-                    </a>
-                </div>
-                <div class="jet-item">
-                    <a href="https://www.gulfstream.com/en/aircraft/gulfstream-g700/" target="_blank">
-                        <img src="Images/G700.jpg" alt="G700">
-                        <p class="jet-name">Gulfstream G700</p>
-                    </a>
-                </div>
-                <div class="jet-item">
-                    <a href="https://www.dassaultfalcon.com/businessjets/falcon-10x/" target="_blank">
-                        <img src="Images/Falcon10X.jpg" alt="F10X">
-                        <p class="jet-name">Dassault Falcon 10X</p>
-                    </a>
-                </div>
-            </div>
+    <nav class="bg-[#EEEEEE] rounded-3xl opacity-80 flex ml-8 mr-8 mt-4 p-4 items-center">
+        <h2 class="font-montserrat font-bold ml-6 mr-8 text-lg"><a href="index2.html">The Airliner</a></h2>
+        <div class="flex-1 flex justify-center gap-8">
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="index2.html">Home</a>
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="travel2.html">Travel</a>
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="all-inclusive2.html">All inclusive</a>
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="flights2.html">Flights</a>
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="private-flights2.html">Private flights</a>
         </div>
-        <div class="flights-section">
-            <span class="Privateflight-title">Our Popular Private Destinations</span>
-            <div class="Privateflight-images">
-                <div class="flight-item">
-                    <img src="Images/ibiza.jpg" alt="Ibiza">
-                    <p class="flight-name">Ibiza</p>
-                </div>
-                <div class="flight-item">
-                    <img src="Images/Maldives.jpg" alt="Maldives">
-                    <p class="flight-name">Maldives</p>
-                </div>
-                <div class="flight-item">
-                    <img src="Images/Nice.png" alt="Nice">
-                    <p class="flight-name">Nice</p>
-                </div>
-            </div>
+        <div class="ml-auto mr-12">
+            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans" href="login.html">Login</a>
         </div>
-    </div>
+    </nav>
 
 </body>
-
-</html>
