@@ -1,68 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Airliner</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap");
     </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap");
     </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap");
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- ml is bv Margin Left, bg is background en dan de hex code erachter, rounded gaat over de corners
     allemaal best voorzelf sprekend -->
-    <nav class="bg-[#EEEEEE] rounded-3xl opacity-80 flex ml-8 mr-8 mt-4 p-4 items-center">
-        <h2 class="font-montserrat font-bold ml-6 mr-8 text-lg"><a href="index.html">The Airliner</a></h2>
-        <div class="flex-1 flex justify-center gap-8">
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="index.html">Home</a>
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="travel.html">Travel</a>
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="all-inclusive.html">All inclusive</a>
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="flights.html">Flights</a>
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans mr-8" href="private-flights.html">Private flights</a>
-        </div>
-        <div class="ml-auto mr-12">
-            <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 font-opensans" href="login.html">Login</a>
-        </div>
+    <nav
+      class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 p-4 items-center gap-4">
+      <h2 class="montserrat font-bold ml-6 mr-8 text-lg">
+        <a href="index.html">The Airliner</a>
+      </h2>
+      <div class="flex-1 flex flex-wrap justify-center items-center gap-4 lg:gap-8">
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="index.html"
+          >Home</a
+        >
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="travel.html"
+          >Travel</a
+        >
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="all-inclusive.html"
+          >All inclusive</a
+        >
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="flights.html"
+          >Flights</a
+        >
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="private-flights.html"
+          >Private flights</a
+        >
+      </div>
+      <div class="lg:ml-auto lg:mr-12">
+        <a
+          class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
+          href="login.html"
+          >Login</a
+        >
+      </div>
     </nav>
     <main>
-        <div class="flex justify-center mt-12">
-            <div class="flex flex-col opacity-80 items-center gap-8 p-6 bg-[#EEEEEE] rounded-3xl max-w-2xl w-full">
-                <h1 class="montserrat text-4xl text-center">
-                    Welcome to The Airliner
-                </h1>
-                <p class="lato text-lg text-center">
-                    Discover the world with us. We offer the best travel deals, all-inclusive packages, and private flights to make your journey unforgettable.
-                </p>
-                <a href="travel2.html" class="bg-[#DDDDDD] rounded-full px-6 py-3 opensans hover:bg-[#CCCCCC] transition">
-                    Explore Now
-                </a>
-            </div>
+      <div class="flex justify-center mt-12 px-4">
+        <div
+          class="flex flex-col opacity-80 items-center gap-8 p-6 bg-[#EEEEEE] rounded-3xl max-w-2xl w-full">
+          <h1 class="montserrat text-3xl lg:text-4xl text-center font-bold">
+            Welcome to The Airliner
+          </h1>
+          <p class="lato text-base lg:text-lg text-center">
+            Discover the world with us. We offer the best travel deals,
+            all-inclusive packages, and private flights to make your journey
+            unforgettable.
+          </p>
+          <a
+            href="travel.html"
+            class="bg-[#DDDDDD] rounded-full px-6 py-3 opensans hover:bg-[#CCCCCC] transition">
+            Explore Now
+          </a>
         </div>
-        <div class="flex justify-center gap-6 mt-12 px-6">
-            <div class="flex flex-col opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-[40rem] h-[20rem]">
-                <h1 class="montserrat">Placeholder</h1>
-            </div>
-            <div class="flex flex-col opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-[40rem] h-[20rem]">
-                <h1 class="montserrat">Placeholder</h1>
-            </div>
+      </div>
+      <div class="flex flex-col lg:flex-row justify-center gap-6 mt-12 px-4 lg:px-6">
+        <div
+          class="flex flex-col justify-between opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-full max-w-[40rem] min-h-[20rem]">
+          <h1 class="montserrat text-xl lg:text-2xl font-bold text-center">Popular Destinations</h1>
+          <div class="flex flex-col gap-2 text-center">
+            <p class="opensans">
+              <span class="font-bold">Dubai</span> - from €699
+            </p>
+            <p class="opensans">
+              <span class="font-bold">Bali</span> - from €399
+            </p>
+            <p class="opensans">
+              <span class="font-bold">New York</span> - from €599
+            </p>
+          </div>
+          <a
+            href="travel.html"
+            class="bg-[#DDDDDD] rounded-full px-4 py-2 hover:bg-[#CCCCCC] transition">
+            View Deals
+          </a>
         </div>
-        <div class="flex justify-center gap-6 mt-12 px-6">
-            <div class="flex flex-col opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-[40rem] h-[20rem]">
-                <h1 class="montserrat">Placeholder</h1>
-            </div>
-            <div class="flex flex-col opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-[40rem] h-[20rem]">
-                <h1 class="montserrat">Placeholder</h1>
-            </div>
+        <div
+          class="flex flex-col justify-between opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-full max-w-[40rem] min-h-[20rem]">
+          <h1 class="montserrat text-xl lg:text-2xl font-bold text-center">Private Flights</h1>
+          <h2 class="opensans text-center italic text-lg">
+            Luxury travel with maximum comfort and privacy
+          </h2>
+          <ul class="font-opensans text-center">
+            <li>VIP Services</li>
+            <li>Worldwide Destinations</li>
+            <li>Premium Jets</li>
+          </ul>
+          <a
+            href="private-flights.html"
+            class="bg-[#DDDDDD] rounded-full px-4 py-2 hover:bg-[#CCCCCC] transition">
+            View our Services
+          </a>
         </div>
+      </div>
+      <div class="flex flex-col lg:flex-row justify-center gap-6 mt-12 px-4 lg:px-6 mb-12">
+        <div
+          class="flex flex-col justify-between opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-full max-w-[40rem] min-h-[20rem]">
+          <h1 class="montserrat text-xl lg:text-2xl font-bold text-center">Why Choose Us?</h1>
+          <p class="opensans text-center italic text-lg">
+            The Airliner takes your travel expectations to a higher level.
+          </p>
+          <ul class="opensans text-center">
+            <li>Best prices guaranteed</li>
+            <li>24/7 customer support</li>
+            <li>Trusted by thousands</li>
+            <li>Fast booking, good communcation</li>
+          </ul>
+        </div>
+        <div
+          class="flex flex-col justify-between opacity-80 items-center gap-4 p-12 bg-[#EEEEEE] rounded-3xl w-full max-w-[40rem] min-h-[20rem]">
+          <h1 class="montserrat text-xl lg:text-2xl font-bold text-center">Special Offers</h1>
+          <p class="opensans text-center text-lg font-semibold">
+            Save up to 30% on selected all-inclusive summer destinations!
+          </p>
+          <a
+            href="all-inclusive.html"
+            class="bg-[#DDDDDD] rounded-full px-4 py-2 hover:bg-[#CCCCCC] transition">
+            See Offers
+          </a>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
+</html>
