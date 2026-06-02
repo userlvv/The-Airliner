@@ -1,29 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Airliner</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap");
     </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap");
     </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap");
     </style>
-</head>
+  </head>
 
   <body class="overflow-x-hidden">
     <header>
       <nav
         class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
         <h2
-          class="font-montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
+          class="montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
           <a href="index.html">The Airliner</a>
         </h2>
         <div
@@ -63,34 +62,198 @@
         </div>
       </nav>
     </header>
-<main>
+    
+    <main>
+    <section class="flex justify-center mt-12 px-4">
+      <div
+        class="bg-[#EEEEEE] opacity-80 rounded-3xl p-8 lg:p-12 text-center max-w-4xl w-full">
+        <h1 class="montserrat text-1xl lg:text-3xl font-bold mb-4">
+          All Inclusive Holidays
+        </h1>
+        <p class="opensans text-lg lg:text-xl max-w-2xl mx-auto">
+          Enjoy luxury resorts, unlimited dining, premium drinks and
+          unforgettable experiences at the world's most popular destinations.
+        </p>
+      </div>
+    </section>
 
-</main>
+    <section class="px-4 lg:px-8 py-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/Dubai.jpeg"
+            alt="Dubai Resort"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">Dubai</h2>
+            <p class="opensans mb-4 flex-grow">
+              7 nights in a luxury beachfront resort with meals and drinks
+              included.
+            </p>
+            <p class="font-bold text-xl mb-4">From €699</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/Bali.jpg"
+            alt="Bali Resort"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">Bali</h2>
+            <p class="opensans mb-4 flex-grow">
+              Relax in tropical paradise with premium accommodation and
+              unlimited dining.
+            </p>
+            <p class="font-bold text-xl mb-4">From €499</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/New York.jpg"
+            alt="New York"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">New York</h2>
+            <p class="opensans mb-4 flex-grow">
+              Experience the energy of the city that never sleeps, with iconic landmarks, world-class shopping and unforgettable entertainment.
+            </p>
+            <p class="font-bold text-xl mb-4">From €999</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/Maldives.jpg"
+            alt="Maldives Resort"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">Maldives</h2>
+            <p class="opensans mb-4 flex-grow">
+              7 nights in a luxury beachfront resort with meals and drinks included.
+            </p>
+            <p class="font-bold text-xl mb-4">From €699</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/ibiza.jpg"
+            alt="Ibiza Resort"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">Ibiza</h2>
+            <p class="opensans mb-4 flex-grow">
+              5 nights in a vibrant beachfront resort with all-inclusive dining, cocktails and legendary nightlife nearby.
+            </p>
+            <p class="font-bold text-xl mb-4">From €899</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div
+          class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
+          <img
+            src="Images/Nice.png"
+            alt="Nice"
+            class="h-64 w-full object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="montserrat text-2xl font-bold mb-2">Nice</h2>
+            <p class="opensans mb-4 flex-grow">
+              7 nights on the French Riviera with elegant beachfront resorts, fine dining and Mediterranean sunshine.
+            </p>
+            <p class="font-bold text-xl mb-4">From €1099</p>
+            <a
+              href="#"
+              class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+              Book Now
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <section class="px-4 lg:px-8 pb-12">
+      <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-8 max-w-6xl mx-auto">
+        <h2 class="montserrat text-3xl font-bold text-center mb-8">
+          What's Included?
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div>
+            <h3 class="font-bold text-xl mb-2">Dining</h3>
+            <p>Unlimited meals and snacks.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Drinks</h3>
+            <p>Premium beverages included.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Resorts</h3>
+            <p>Luxury accommodation.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Flights</h3>
+            <p>Return flights available.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <footer class="bg-[#EEEEEE] opacity-80 rounded-t-3xl mt-12 px-6 py-10">
       <div
         class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-2 xl:flex xl:flex-row justify-between gap-10 text-center lg:text-left">
         <div class="flex flex-col gap-3 items-center lg:items-start">
-          <h2 class="font-montserrat text-2xl font-bold">The Airliner</h2>
+          <h2 class="montserrat text-2xl font-bold">The Airliner</h2>
 
-          <p class="font-opensans max-w-sm">
+          <p class="opensans max-w-sm">
             Luxury travel experiences, exclusive destinations and premium
             flights tailored for every journey.
           </p>
         </div>
         <div class="flex flex-col gap-3 items-center lg:items-start">
-          <h3 class="font-montserrat text-xl font-bold">Contact</h3>
+          <h3 class="montserrat text-xl font-bold">Contact</h3>
 
-          <p class="font-opensans">support@theairliner.com</p>
+          <p class="opensans">support@theairliner.com</p>
 
-          <p class="font-opensans">+31 6 12345678</p>
+          <p class="opensans">+31 6 12345678</p>
 
-          <p class="font-opensans">Amsterdam, Netherlands</p>
+          <p class="opensans">Amsterdam, Netherlands</p>
         </div>
       </div>
-      <div class="border-t border-gray-300 mt-8 pt-6 text-center flex justify-center">
-        <p class="font-opensans text-sm">
+      <div
+        class="border-t border-gray-300 mt-8 pt-6 text-center flex justify-center">
+        <p class="opensans text-sm">
           © 2026 The Airliner. All rights reserved.
         </p>
       </div>
     </footer>
-</body>
+  </body>
+</html>

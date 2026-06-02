@@ -22,7 +22,7 @@
       <nav
         class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
         <h2
-          class="font-montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
+          class="montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
           <a href="index.html">The Airliner</a>
         </h2>
         <div
@@ -63,30 +63,67 @@
       </nav>
     </header>
     <main></main>
+    <main class="flex items-center justify-center mt-24 mb-24 px-4">
+      <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-8 w-full max-w-md">
+        
+        <h1 class="montserrat text-3xl font-bold text-center mb-6">
+          Login
+        </h1>
+        <form class="flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <label class="opensans" for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              class="p-3 rounded-full bg-white outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="opensans" for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              class="p-3 rounded-full bg-white outline-none"
+            />
+          </div>
+          <button
+            type="submit"
+            class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 opensans font-semibold"
+          >
+            Login
+          </button>
+          <p class="text-center text-sm opensans mt-2">
+            Don't have an account? <a href="#" class="underline">Sign up</a>
+          </p>
+        </form>
+      </div>
+    </main>
     <footer class="bg-[#EEEEEE] opacity-80 rounded-t-3xl mt-12 px-6 py-10">
       <div
         class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-2 xl:flex xl:flex-row justify-between gap-10 text-center lg:text-left">
         <div class="flex flex-col gap-3 items-center lg:items-start">
-          <h2 class="font-montserrat text-2xl font-bold">The Airliner</h2>
+          <h2 class="montserrat text-2xl font-bold">The Airliner</h2>
 
-          <p class="font-opensans max-w-sm">
+          <p class="opensans max-w-sm">
             Luxury travel experiences, exclusive destinations and premium
             flights tailored for every journey.
           </p>
         </div>
         <div class="flex flex-col gap-3 items-center lg:items-start">
-          <h3 class="font-montserrat text-xl font-bold">Contact</h3>
+          <h3 class="montserrat text-xl font-bold">Contact</h3>
 
-          <p class="font-opensans">support@theairliner.com</p>
+          <p class="opensans">support@theairliner.com</p>
 
-          <p class="font-opensans">+31 6 12345678</p>
+          <p class="opensans">+31 6 12345678</p>
 
-          <p class="font-opensans">Amsterdam, Netherlands</p>
+          <p class="opensans">Amsterdam, Netherlands</p>
         </div>
       </div>
       <div
         class="border-t border-gray-300 mt-8 pt-6 text-center flex justify-center">
-        <p class="font-opensans text-sm">
+        <p class="opensans text-sm">
           © 2026 The Airliner. All rights reserved.
         </p>
       </div>
