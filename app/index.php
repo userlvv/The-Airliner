@@ -1,3 +1,9 @@
+<?php
+session_start();
+require __DIR__ . "/config/database.php";
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>

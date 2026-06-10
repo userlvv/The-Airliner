@@ -1,3 +1,24 @@
+<?php
+session_start();
+require __DIR__ . "/config/database.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $stmt = $pdo->prepare("SELECT * FROM userinformation WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password_hash'])) {
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: userpanel.php");
+        exit;
+    } else {
+        $error = "Verkeerde email of wachtwoord";
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -65,12 +86,13 @@
     <main class="flex items-center justify-center mt-24 mb-24 px-4">
       <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-8 w-full max-w-md">
         <h1 class="montserrat text-3xl font-bold text-center mb-6">Login</h1>
-        <form class="flex flex-col gap-4">
+        <form method="POST" class="flex flex-col gap-4">
           <div class="flex flex-col gap-2">
             <label class="opensans" for="email">Email</label>
             <input
               id="email"
               type="email"
+              name="email"
               placeholder="Enter your email"
               class="p-3 rounded-full bg-white outline-none" />
           </div>
@@ -79,6 +101,7 @@
             <input
               id="password"
               type="password"
+              name="password"
               placeholder="Enter your password"
               class="p-3 rounded-full bg-white outline-none" />
           </div>
