@@ -18,45 +18,45 @@
   </head>
 
   <body class="overflow-x-hidden">
-    <header>
+        <header>
       <nav
         class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
         <h2
           class="montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
-          <a href="index.html">The Airliner</a>
+          <a href="index.php">The Airliner</a>
         </h2>
         <div
           class="flex-1 flex flex-wrap justify-center items-center gap-3 lg:gap-8 w-full">
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="index.html"
+            href="index.php"
             >Home</a
           >
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="travel.html"
+            href="travel.php"
             >Travel</a
           >
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="all-inclusive.html"
+            href="all-inclusive.php"
             >All inclusive</a
           >
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="flights.html"
+            href="flights.php"
             >Flights</a
           >
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="private-flights.html"
+            href="private-flights.php"
             >Private flights</a
           >
         </div>
         <div class="lg:ml-auto">
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-            href="login.html"
+            href="login.php"
             >Login</a
           >
         </div>
