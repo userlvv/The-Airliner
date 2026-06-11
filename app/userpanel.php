@@ -49,7 +49,7 @@ require __DIR__ . "/config/database.php";
         <div class="flex justify-center mt-12 px-4">
             <div class="flex flex-col opacity-80 items-center gap-8 p-6 bg-[#EEEEEE] rounded-3xl max-w-2xl w-full">
                 <h1 class="montserrat text-3xl lg:text-4xl text-center font-bold">
-                    Welcome Back
+                    Welcome, <?php echo htmlspecialchars($_SESSION["user_name"] ?? "User"); ?>
                 </h1>
                 <p class="lato text-base lg:text-lg text-center">
                     Manage your account, bookings and travel preferences from your personal dashboard.
@@ -92,6 +92,7 @@ require __DIR__ . "/config/database.php";
                 <p class="opensans max-w-sm">
                     Luxury travel experiences, exclusive destinations and premium flights tailored for every journey.
                 </p>
+                <a href="adminlogin.php" class="mt-4">Admin</a>
             </div>
             <div class="flex flex-col gap-3 items-center lg:items-start">
                 <h3 class="montserrat text-xl font-bold">Contact</h3>

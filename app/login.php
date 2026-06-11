@@ -128,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Luxury travel experiences, exclusive destinations and premium
             flights tailored for every journey.
           </p>
+          <a href="adminlogin.php" class="mt-4">Admin</a>
         </div>
         <div class="flex flex-col gap-3 items-center lg:items-start">
           <h3 class="montserrat text-xl font-bold">Contact</h3>
