@@ -71,7 +71,9 @@ require __DIR__ . "/config/database.php";
     </section>
 
     <section class="px-4 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
+      <input type="text" id="search" onkeyup="zoek()" placeholder="Search for all inclusive packages..."
+        class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
+      <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
         <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
           <img src="Images/Dubai.jpeg" alt="Dubai Resort" class="h-64 w-full object-cover" />
           <div class="p-6 flex flex-col flex-grow">
@@ -212,6 +214,16 @@ require __DIR__ . "/config/database.php";
         </p>
       </div>
     </footer>
+
+    <script>
+      function zoek() {
+        let input = document.getElementById("search").value.toLowerCase();
+        for (let card of document.getElementById("grid").children) {
+          let naam = card.querySelector("h2").innerText.toLowerCase();
+          card.style.display = naam.includes(input) ? "flex" : "none";
+        }
+      }
+    </script>
 </body>
 
 </html>
