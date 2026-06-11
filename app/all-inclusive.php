@@ -71,7 +71,7 @@ require __DIR__ . "/config/database.php";
     </section>
 
     <section class="px-4 lg:px-8 py-12">
-      <input type="text" id="search" onkeyup="zoek()" placeholder="Search for destinations..."
+      <input type="text" id="search" onkeyup="zoek()" placeholder="Search for all inclusive packages..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
       <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
         <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
