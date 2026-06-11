@@ -49,7 +49,7 @@ require __DIR__ . "/config/database.php";
         <div class="flex justify-center mt-12 px-4">
             <div class="flex flex-col opacity-80 items-center gap-8 p-6 bg-[#EEEEEE] rounded-3xl max-w-2xl w-full">
                 <h1 class="montserrat text-3xl lg:text-4xl text-center font-bold">
-                    Welcome, <?php echo htmlspecialchars($_SESSION["user_name"] ?? "User"); ?>
+                    Welcome, <?php echo ($_SESSION["user_name"] ?? "User"); ?>
                 </h1>
                 <p class="lato text-base lg:text-lg text-center">
                     Manage your account, bookings and travel preferences from your personal dashboard.
@@ -65,7 +65,7 @@ require __DIR__ . "/config/database.php";
                 <p class="opensans text-center">
                     View and update your personal information, contact details and preferences.
                 </p>
-                <a href="#" class="bg-[#DDDDDD] rounded-full px-5 py-2 text-center hover:bg-[#CCCCCC] transition w-fit">
+                <a href="profile.php" class="bg-[#DDDDDD] rounded-full px-5 py-2 text-center hover:bg-[#CCCCCC] transition w-fit">
                     Manage Profile
                 </a>
             </div>
