@@ -28,6 +28,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: adminpanel.php");
     exit;
   }
+
+if (isset($_POST['add_item'])) {
+  $destination = $_POST['destination'];
+  $price = $_POST['price'];
+  $table = $_POST['table'];
+  if ($table === 'flights') {
+    $stmt = $pdo->prepare("INSERT INTO flights (destination, price) VALUES (?, ?)");
+  }
+  if ($table === 'travel_plans') {
+    $stmt = $pdo->prepare("INSERT INTO `travel plans` (destination, price) VALUES (?, ?)");
+  }
+  if ($table === 'all_inclusive') {
+    $stmt = $pdo->prepare("INSERT INTO `all-inclusive` (destination, price) VALUES (?, ?)");
+  }
+  $stmt->execute([$destination, $price]);
+  header("Location: adminpanel.php");
+  exit;
+}
 }
 
 $stmt = $pdo->prepare("SELECT * FROM `flights`");
@@ -194,6 +212,22 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <?php endforeach; ?>
         </div>
       </div>
+    </div>
+    <div class="w-full max-w-4xl mx-auto bg-[#EEEEEE] p-6 rounded-3xl mt-12 opacity-80">
+      <h2 class="text-2xl font-bold mb-4">Add Item</h2>
+
+      <form method="POST" class="grid gap-4">
+        <select name="table" class="p-2 rounded border">
+          <option value="flights">Flights</option>
+          <option value="travel_plans">Travel Plans</option>
+          <option value="all_inclusive">All Inclusive</option>
+        </select>
+        <input type="text" name="destination" placeholder="Destination" class="p-2 rounded border" required>
+        <input type="number" step="0.01" name="price" placeholder="Price" class="p-2 rounded border" required>
+        <button type="submit" name="add_item" class="bg-green-500 text-white py-2 rounded hover:bg-green-600">
+          Add
+        </button>
+      </form>
     </div>
   </main>
   <footer>
