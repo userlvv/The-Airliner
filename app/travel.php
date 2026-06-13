@@ -2,7 +2,9 @@
 session_start();
 require __DIR__ . "/config/database.php";
 
-
+$stmt = $pdo->prepare("SELECT * FROM `travel plans`");
+$stmt->execute();
+$travelplans = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -73,88 +75,28 @@ require __DIR__ . "/config/database.php";
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for destinations..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
-      <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Dubai</h2>
-          <p class="opensans mb-4 flex-grow">
-            Luxury city with skyscrapers, desert safaris and beaches.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">Burj Khalifa, Desert Safari, Dubai Mall</p>
-          <p class="font-bold text-xl mb-4">From €349</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">New York</h2>
-          <p class="opensans mb-4 flex-grow">
-            The city that never sleeps with iconic landmarks and culture.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">
-            Times Square, Central Park, Statue of Liberty
-          </p>
-          <p class="font-bold text-xl mb-4">From €499</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Bali</h2>
-          <p class="opensans mb-4 flex-grow">
-            Tropical island with beaches, temples and rice fields.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">Ubud, Uluwatu Temple, Rice Terraces</p>
-          <p class="font-bold text-xl mb-4">From €399</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Tokyo</h2>
-          <p class="opensans mb-4 flex-grow">
-            Mix of futuristic city life and traditional culture.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">Shibuya, Skytree, Temples</p>
-          <p class="font-bold text-xl mb-4">From €579</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Paris</h2>
-          <p class="opensans mb-4 flex-grow">
-            Romantic city with art, fashion and cafés.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">Eiffel Tower, Louvre, Montmartre</p>
-          <p class="font-bold text-xl mb-4">From €129</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Cape Town</h2>
-          <p class="opensans mb-4 flex-grow">
-            Mountains, beaches and wildlife experiences.
-          </p>
-          <p class="font-bold text-xl mb-2">Highlights</p>
-          <p class="opensans mb-4">
-            Table Mountain, Cape of Good Hope, Penguins
-          </p>
-          <p class="font-bold text-xl mb-4">From €699</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Plan Trip
-          </a>
-        </div>
+      <div class="mx-auto gap-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1" id="grid">
+        <?php foreach ($travelplans as $tp): ?>
+          <div class="flex flex-col rounded-3xl opacity-80 bg-[#EEEEEE]">
+            <!--<img src="" class="h-64 w-full object-cover" />-->
+            <div class="flex flex-col flex-grow p-6">
+              <h2 class="mb-2 text-2xl font-bold montserrat">
+                <?= $tp['destination'] ?>
+              </h2>
+              <p class="flex-grow mb-4 opensans">
+                Private flight to
+                <?= $tp['destination'] ?> with in-air Wi-Fi.
+              </p>
+              <p class="text-xl font-bold mb-4">
+                From €
+                <?= $tp['price'] ?> per flight
+              </p>
+              <a href="#" class="transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                Request Flight
+              </a>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
     </section>
   </main>

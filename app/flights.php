@@ -3,6 +3,9 @@ session_start();
 require __DIR__ . "/config/database.php";
 
 
+$stmt = $pdo->prepare("SELECT * FROM flights");
+$stmt->execute();
+$flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -69,92 +72,31 @@ require __DIR__ . "/config/database.php";
         </p>
       </div>
     </section>
-
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for destinations..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto" id="grid">
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">
-            Amsterdam → Dubai
-          </h2>
-          <p class="opensans mb-4 flex-grow">
-            Direct long-haul flight to a modern luxury city full of
-            skyscrapers, beaches and shopping.
-          </p>
-          <p class="font-bold text-xl mb-4">From €349</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">
-            Amsterdam → New York
-          </h2>
-          <p class="opensans mb-4 flex-grow">
-            Fly to the city that never sleeps with world-class entertainment,
-            culture and skyline views.
-          </p>
-          <p class="font-bold text-xl mb-4">From €499</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">Amsterdam → Bali</h2>
-          <p class="opensans mb-4 flex-grow">
-            Escape to tropical paradise with beaches, temples and relaxing
-            luxury resorts.
-          </p>
-          <p class="font-bold text-xl mb-4">From €399</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">
-            Amsterdam → Tokyo
-          </h2>
-          <p class="opensans mb-4 flex-grow">
-            Experience futuristic city life mixed with tradition, food culture
-            and neon skylines.
-          </p>
-          <p class="font-bold text-xl mb-4">From €579</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">
-            Amsterdam → Paris
-          </h2>
-          <p class="opensans mb-4 flex-grow">
-            Quick and stylish European getaway to the city of romance, fashion
-            and culture.
-          </p>
-          <p class="font-bold text-xl mb-4">From €129</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
-
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl p-6 flex flex-col">
-          <h2 class="montserrat text-2xl font-bold mb-2">
-            Amsterdam → Cape Town
-          </h2>
-          <p class="opensans mb-4 flex-grow">
-            Discover breathtaking landscapes, mountains and coastlines in
-            South Africa’s most iconic city.
-          </p>
-          <p class="font-bold text-xl mb-4">From €699</p>
-          <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-            Book Flight
-          </a>
-        </div>
+      <div class="mx-auto gap-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1" id="grid">
+        <?php foreach ($flights as $f): ?>
+          <div class="flex flex-col rounded-3xl opacity-80 bg-[#EEEEEE]">
+            <!--<img src="" class="h-64 w-full object-cover" />-->
+            <div class="flex flex-col flex-grow p-6">
+              <h2 class="mb-2 text-2xl font-bold montserrat">
+                <?= $f['destination'] ?>
+              </h2>
+              <p class="flex-grow mb-4 opensans">
+                Private flight to
+                <?= $f['destination'] ?> with luxury service and flexible scheduling.
+              </p>
+              <p class="text-xl font-bold mb-4">
+                From €
+                <?= $f['price'] ?> per flight
+              </p>
+              <a href="#" class="transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                Request Flight
+              </a>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
     </section>
   </main>

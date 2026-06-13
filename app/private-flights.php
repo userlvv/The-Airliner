@@ -2,6 +2,10 @@
 session_start();
 require __DIR__ . "/config/database.php";
 
+
+$stmt = $pdo->prepare("SELECT * FROM flights");
+$stmt->execute();
+$flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">

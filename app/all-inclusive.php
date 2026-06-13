@@ -2,7 +2,9 @@
 session_start();
 require __DIR__ . "/config/database.php";
 
-
+$stmt = $pdo->prepare("SELECT * FROM `all-inclusive`");
+$stmt->execute();
+$allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -73,89 +75,28 @@ require __DIR__ . "/config/database.php";
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for all inclusive packages..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
-      <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mx-auto">
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/Dubai.jpeg" alt="Dubai Resort" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">Dubai</h2>
-            <p class="opensans mb-4 flex-grow">
-              7 nights in a luxury beachfront resort with meals and drinks
-              included.
-            </p>
-            <p class="font-bold text-xl mb-4">From €699</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
+      <div class="mx-auto gap-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1" id="grid">
+        <?php foreach ($allinclusive as $ai): ?>
+          <div class="flex flex-col rounded-3xl opacity-80 bg-[#EEEEEE]">
+            <!--<img src="" class="h-64 w-full object-cover" />-->
+            <div class="flex flex-col flex-grow p-6">
+              <h2 class="mb-2 text-2xl font-bold montserrat">
+                <?= $ai['destination'] ?>
+              </h2>
+              <p class="flex-grow mb-4 opensans">
+                Private flight to
+                <?= $ai['destination'] ?> with transport to a luxury hotel and a two-week stay.
+              </p>
+              <p class="text-xl font-bold mb-4">
+                From €
+                <?= $ai['price'] ?> per person
+              </p>
+              <a href="#" class="transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                Request Vacation
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/Bali.jpg" alt="Bali Resort" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">Bali</h2>
-            <p class="opensans mb-4 flex-grow">
-              Relax in tropical paradise with premium accommodation and
-              unlimited dining.
-            </p>
-            <p class="font-bold text-xl mb-4">From €499</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
-          </div>
-        </div>
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/New York.jpg" alt="New York" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">New York</h2>
-            <p class="opensans mb-4 flex-grow">
-              Experience the energy of the city that never sleeps, with iconic landmarks, world-class shopping and
-              unforgettable entertainment.
-            </p>
-            <p class="font-bold text-xl mb-4">From €999</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
-          </div>
-        </div>
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/Maldives.jpg" alt="Maldives Resort" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">Maldives</h2>
-            <p class="opensans mb-4 flex-grow">
-              7 nights in a luxury beachfront resort with meals and drinks included.
-            </p>
-            <p class="font-bold text-xl mb-4">From €699</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
-          </div>
-        </div>
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/ibiza.jpg" alt="Ibiza Resort" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">Ibiza</h2>
-            <p class="opensans mb-4 flex-grow">
-              5 nights in a vibrant beachfront resort with all-inclusive dining, cocktails and legendary nightlife
-              nearby.
-            </p>
-            <p class="font-bold text-xl mb-4">From €899</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
-          </div>
-        </div>
-        <div class="bg-[#EEEEEE] opacity-80 rounded-3xl flex flex-col">
-          <img src="Images/Nice.png" alt="Nice" class="h-64 w-full object-cover" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h2 class="montserrat text-2xl font-bold mb-2">Nice</h2>
-            <p class="opensans mb-4 flex-grow">
-              7 nights on the French Riviera with elegant beachfront resorts, fine dining and Mediterranean sunshine.
-            </p>
-            <p class="font-bold text-xl mb-4">From €1099</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Book Now
-            </a>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
 
     </section>
