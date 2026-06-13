@@ -6,6 +6,30 @@ if (!isset($_SESSION["admin_id"])) {
 }
 require __DIR__ . "/config/database.php";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  if (isset($_POST['delete_flight'])) {
+    $stmt = $pdo->prepare("DELETE FROM flights WHERE id = ?");
+    $stmt->execute([$_POST['id']]);
+    header("Location: adminpanel.php");
+    exit;
+  }
+
+  if (isset($_POST['delete_travelplan'])) {
+    $stmt = $pdo->prepare("DELETE FROM `travel plans` WHERE id = ?");
+    $stmt->execute([$_POST['id']]);
+    header("Location: adminpanel.php");
+    exit;
+  }
+
+  if (isset($_POST['delete_allinclusive'])) {
+    $stmt = $pdo->prepare("DELETE FROM `all-inclusive` WHERE id = ?");
+    $stmt->execute([$_POST['id']]);
+    header("Location: adminpanel.php");
+    exit;
+  }
+}
+
 $stmt = $pdo->prepare("SELECT * FROM `flights`");
 $stmt->execute();
 $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -44,28 +68,133 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </header>
   <main>
     <div class="mt-12 px-4 justify-center flex">
-      <div class="opacity-80 w-full bg-[#EEEEEE] p-2 max-w-lg rounded-3xl">
-        <div class="gap-1 mb-6 flex justify-center">
-          <a href="adminflight.php"
-            class="transition hover:bg-[#CCCCCC] justify-center mt-4 bg-[#DDDDDD] px-4 rounded-full py-2">
-            Flights
-          </a>
-          <a href="admintravel.php"
-            class="transition hover:bg-[#CCCCCC] justify-center mt-4 bg-[#DDDDDD] px-4 rounded-full py-2">
-            Travel Plans
-          </a>
-          <a href="adminallinclu.php"
-            class="transition hover:bg-[#CCCCCC] justify-center mt-4 bg-[#DDDDDD] px-4 rounded-full py-2">
-            All Inclusive
-          </a>
-          <a href="index.php"
-            class="transition hover:bg-[#CCCCCC] justify-center mt-4 bg-[#DDDDDD] px-4 rounded-full py-2">
-            Home
-          </a>
+      <a href="index.php" class="transition hover:bg-[#CCCCCC] justify-center mt-4 bg-[#DDDDDD] px-4 rounded-full py-2">
+        Index Page
+      </a>
+    </div>
+
+    <div class="justify-center px-4 flex mt-12">
+      <div class="w-full p-6 opacity-80 bg-[#EEEEEE] max-w-4xl rounded-3xl">
+        <div class="mb-6 flex justify-center gap-4"></div>
+        <div id="flights" class="tab-content">
+          <h2 class="text-2xl font-bold mb-2">Flights</h2>
+          <div class="grid grid-cols-4 mb-2 pb-2 border-b border-gray-400 font-bold">
+            <div>ID</div>
+            <div>Destination</div>
+            <div>Price</div>
+            <div class="text-right">Actions</div>
+          </div>
+          <?php foreach ($flights as $f): ?>
+            <div class="items-center grid grid-cols-4 border-b border-gray-300 py-2">
+              <div>
+                <?= $f['id'] ?>
+              </div>
+              <div>
+                <?= $f['destination'] ?>
+              </div>
+              <div>€
+                <?= $f['price'] ?>
+              </div>
+              <div class="flex gap-2 justify-end">
+                <a href="edit.php?id=<?= $f['id'] ?>"
+                  class="text-sm px-3 transition rounded-full hover:bg-yellow-500 bg-yellow-400 py-1">
+                  Edit
+                </a>
+                <form method="POST" class="flex gap-2 justify-end">
+                  <input type="hidden" name="id" value="<?= $f['id'] ?>">
+                  <button type="submit" name="delete_flight"
+                    class="text-sm px-3 py-1 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
 
+    <div class="flex justify-center mt-12 px-4">
+      <div class="bg-[#EEEEEE] rounded-3xl p-6 w-full max-w-4xl opacity-80">
+        <div class="flex justify-center gap-4 mb-6"></div>
+        <div id="travelplans" class="tab-content">
+          <h2 class="text-2xl font-bold mb-2">Travel Plans</h2>
+          <div class="grid grid-cols-4 font-bold border-b border-gray-400 pb-2 mb-2">
+            <div>ID</div>
+            <div>Destination</div>
+            <div>Price</div>
+            <div class="text-right">Actions</div>
+          </div>
+          <?php foreach ($travelplans as $tp): ?>
+            <div class="grid grid-cols-4 py-2 border-b border-gray-300 items-center">
+              <div>
+                <?= $tp['id'] ?>
+              </div>
+              <div>
+                <?= $tp['destination'] ?>
+              </div>
+              <div>€
+                <?= $tp['price'] ?>
+              </div>
+              <div class="flex gap-2 justify-end">
+                <a href="edit.php?id=<?= $tp['id'] ?>"
+                  class="px-3 py-1 rounded-full bg-yellow-400 hover:bg-yellow-500 transition text-sm">
+                  Edit
+                </a>
+                <form method="POST" class="flex gap-2 justify-end">
+                  <input type="hidden" name="id" value="<?= $tp['id'] ?>">
+                  <button type="submit" name="delete_travelplan"
+                    class="text-sm px-3 py-1 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+
+    <div class="justify-center flex px-4 mt-12">
+      <div class="opacity-80 max-w-4xl w-full rounded-3xl p-6 bg-[#EEEEEE]">
+        <div class="flex mb-6 justify-center gap-4"></div>
+        <div id="allinclusive" class="tab-content">
+          <h2 class="text-2xl font-bold mb-2">All Inclusive</h2>
+          <div class="grid grid-cols-4 border-b mb-2 font-bold pb-2 border-gray-400">
+            <div>ID</div>
+            <div>Destination</div>
+            <div>Price</div>
+            <div class="text-right">Actions</div>
+          </div>
+          <?php foreach ($allinclusive as $ai): ?>
+            <div class="grid items-center grid-cols-4 py-2 border-b border-gray-300">
+              <div>
+                <?= $ai['id'] ?>
+              </div>
+              <div>
+                <?= $ai['destination'] ?>
+              </div>
+              <div>€
+                <?= $ai['price'] ?>
+              </div>
+              <div class="flex gap-2 justify-end">
+                <a href="edit.php?id=<?= $ai['id'] ?>"
+                  class="transition text-sm bg-yellow-400 hover:bg-yellow-500 rounded-full py-1 px-3">
+                  Edit
+                </a>
+                <form method="POST" class="flex gap-2 justify-end">
+                  <input type="hidden" name="id" value="<?= $ai['id'] ?>">
+                  <button type="submit" name="delete_allinclusive "
+                    class="text-sm px-3 py-1 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
 
