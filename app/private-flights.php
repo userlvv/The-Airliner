@@ -74,6 +74,12 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </section>
 
+    <?php if (isset($_GET['success'])): ?>
+      <div class="bg-green-200 text-green-800 rounded-full px-6 py-3 text-center max-w-md mx-auto mb-6">
+        Booking confirmed!
+      </div>
+    <?php endif; ?>
+
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for private jets..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
@@ -87,9 +93,15 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
               luxury comfort for intercontinental travel.
             </p>
             <p class="font-bold text-xl mb-4">From €8,500 per hour</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Request Flight
-            </a>
+            <form action="book.php" method="POST">
+              <input type="hidden" name="item_type" value="private_flight">
+              <input type="hidden" name="item_id" value="1">
+              <input type="hidden" name="destination" value="Falcon 10X">
+              <input type="hidden" name="price" value="8500">
+              <button type="submit" class="w-full bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+                Book Flight
+              </button>
+            </form>
           </div>
         </div>
 
@@ -104,9 +116,15 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
               a spacious, modern cabin interior.
             </p>
             <p class="font-bold text-xl mb-4">From €7,900 per hour</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Request Flight
-            </a>
+            <form action="book.php" method="POST">
+              <input type="hidden" name="item_type" value="private_flight">
+              <input type="hidden" name="item_id" value="2">
+              <input type="hidden" name="destination" value="Gulfstream G700">
+              <input type="hidden" name="price" value="7900">
+              <button type="submit" class="w-full bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+                Book Flight
+              </button>
+            </form>
           </div>
         </div>
 
@@ -119,9 +137,15 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
               maximum comfort and intercontinental capability.
             </p>
             <p class="font-bold text-xl mb-4">From €8,200 per hour</p>
-            <a href="#" class="bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
-              Request Flight
-            </a>
+            <form action="book.php" method="POST">
+              <input type="hidden" name="item_type" value="private_flight">
+              <input type="hidden" name="item_id" value="3">
+              <input type="hidden" name="destination" value="Global 8000">
+              <input type="hidden" name="price" value="8200">
+              <button type="submit" class="w-full bg-[#DDDDDD] hover:bg-[#CCCCCC] transition rounded-full py-3 text-center">
+                Book Flight
+              </button>
+            </form>
           </div>
         </div>
       </div>

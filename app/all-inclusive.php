@@ -72,6 +72,12 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </section>
 
+    <?php if (isset($_GET['success'])): ?>
+      <div class="bg-green-200 text-green-800 rounded-full px-6 py-3 text-center max-w-md mx-auto mb-6">
+        Booking confirmed!
+      </div>
+    <?php endif; ?>
+
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for all inclusive packages..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
@@ -91,9 +97,15 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 From €
                 <?= $ai['price'] ?> per person
               </p>
-              <a href="#" class="transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
-                Request Vacation
-              </a>
+              <form action="book.php" method="POST">
+                <input type="hidden" name="item_type" value="all_inclusive">
+                <input type="hidden" name="item_id" value="<?= $ai['id'] ?>">
+                <input type="hidden" name="destination" value="<?= $ai['destination'] ?>">
+                <input type="hidden" name="price" value="<?= $ai['price'] ?>">
+                <button type="submit" class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                  Book Vacation
+                </button>
+              </form>
             </div>
           </div>
         <?php endforeach; ?>

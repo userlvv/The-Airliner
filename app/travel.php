@@ -71,7 +71,11 @@ $travelplans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </p>
       </div>
     </section>
-
+    <?php if (isset($_GET['success'])): ?>
+      <div class="bg-green-200 text-green-800 rounded-full px-6 py-3 text-center max-w-md mx-auto mb-6">
+        Booking confirmed!
+      </div>
+    <?php endif; ?>
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for destinations..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
@@ -91,9 +95,15 @@ $travelplans = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 From €
                 <?= $tp['price'] ?> per flight
               </p>
-              <a href="#" class="transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
-                Request Flight
-              </a>
+              <form action="book.php" method="POST">
+                <input type="hidden" name="item_type" value="travelplan">
+                <input type="hidden" name="item_id" value="<?= $tp['id'] ?>">
+                <input type="hidden" name="destination" value="<?= $tp['destination'] ?>">
+                <input type="hidden" name="price" value="<?= $tp['price'] ?>">
+                <button type="submit" class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                  Book Travel Plan
+                </button>
+              </form>
             </div>
           </div>
         <?php endforeach; ?>

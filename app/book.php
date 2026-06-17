@@ -20,11 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($item_type === 'flight') {
         $redirect = 'flights.php';
-    } else {
+    } elseif ($item_type === 'all_inclusive') {
         $redirect = 'all-inclusive.php';
+    } elseif ($item_type === 'travelplan') {
+        $redirect = 'travel.php';
+    } else {
+        $redirect = 'private-flights.php';
     }
 
     header("Location: $redirect?success=1");
-    
+
     exit;
 }
