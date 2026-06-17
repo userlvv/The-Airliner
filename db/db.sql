@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jun 17, 2026 at 11:32 AM
--- Server version: 8.4.8
--- PHP Version: 8.3.30
+-- Gegenereerd op: 17 jun 2026 om 14:24
+-- Serverversie: 8.4.8
+-- PHP-versie: 8.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,13 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `mydatabase`
 --
-CREATE DATABASE IF NOT EXISTS `mydatabase` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `mydatabase`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admininformation`
+-- Tabelstructuur voor tabel `admininformation`
 --
 
 CREATE TABLE `admininformation` (
@@ -36,7 +34,7 @@ CREATE TABLE `admininformation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `admininformation`
+-- Gegevens worden geëxporteerd voor tabel `admininformation`
 --
 
 INSERT INTO `admininformation` (`id`, `username`, `password_hash`) VALUES
@@ -45,7 +43,7 @@ INSERT INTO `admininformation` (`id`, `username`, `password_hash`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `all-inclusive`
+-- Tabelstructuur voor tabel `all-inclusive`
 --
 
 CREATE TABLE `all-inclusive` (
@@ -55,7 +53,7 @@ CREATE TABLE `all-inclusive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `all-inclusive`
+-- Gegevens worden geëxporteerd voor tabel `all-inclusive`
 --
 
 INSERT INTO `all-inclusive` (`id`, `destination`, `price`) VALUES
@@ -69,7 +67,24 @@ INSERT INTO `all-inclusive` (`id`, `destination`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flights`
+-- Tabelstructuur voor tabel `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `item_type` varchar(20) NOT NULL,
+  `item_id` int NOT NULL,
+  `destination` varchar(255) NOT NULL,
+  `price` double NOT NULL,
+  `booking_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(50) NOT NULL DEFAULT 'confirmed'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `flights`
 --
 
 CREATE TABLE `flights` (
@@ -79,7 +94,7 @@ CREATE TABLE `flights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `flights`
+-- Gegevens worden geëxporteerd voor tabel `flights`
 --
 
 INSERT INTO `flights` (`id`, `destination`, `price`) VALUES
@@ -92,7 +107,7 @@ INSERT INTO `flights` (`id`, `destination`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `travel plans`
+-- Tabelstructuur voor tabel `travel plans`
 --
 
 CREATE TABLE `travel plans` (
@@ -102,7 +117,7 @@ CREATE TABLE `travel plans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `travel plans`
+-- Gegevens worden geëxporteerd voor tabel `travel plans`
 --
 
 INSERT INTO `travel plans` (`id`, `destination`, `price`) VALUES
@@ -116,7 +131,7 @@ INSERT INTO `travel plans` (`id`, `destination`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userinformation`
+-- Tabelstructuur voor tabel `userinformation`
 --
 
 CREATE TABLE `userinformation` (
@@ -127,82 +142,95 @@ CREATE TABLE `userinformation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `userinformation`
+-- Gegevens worden geëxporteerd voor tabel `userinformation`
 --
 
 INSERT INTO `userinformation` (`id`, `name`, `email`, `password_hash`) VALUES
 (1, 'Luke', 'luke@luke.nl', '$2y$12$VDJtmsCIcz8/FlEnQYYDTOcUHeAGYAE43REZgGxFCnfrQZTkARsvK'),
-(3, 'Admin', 'Admin@Admin.nl', '$2y$12$.ggQO0J7LPKpox/wYHojcecvzM8QLCFhltLPjdo337dHAKM0dwKdq');
+(3, 'Admin', 'Admin@Admin.nl', '$2y$12$.ggQO0J7LPKpox/wYHojcecvzM8QLCFhltLPjdo337dHAKM0dwKdq'),
+(4, 'Emre Aktas', 'test@test.nl', '$2y$12$fE0g.Z8kdv16Q2r48Qgsh.N0iJWQ9rMiVvbY7CHVukt356Wo2lpDC');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `admininformation`
+-- Indexen voor tabel `admininformation`
 --
 ALTER TABLE `admininformation`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `all-inclusive`
+-- Indexen voor tabel `all-inclusive`
 --
 ALTER TABLE `all-inclusive`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `flights`
+-- Indexen voor tabel `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `flights`
 --
 ALTER TABLE `flights`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `travel plans`
+-- Indexen voor tabel `travel plans`
 --
 ALTER TABLE `travel plans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `userinformation`
+-- Indexen voor tabel `userinformation`
 --
 ALTER TABLE `userinformation`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `admininformation`
+-- AUTO_INCREMENT voor een tabel `admininformation`
 --
 ALTER TABLE `admininformation`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `all-inclusive`
+-- AUTO_INCREMENT voor een tabel `all-inclusive`
 --
 ALTER TABLE `all-inclusive`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `flights`
+-- AUTO_INCREMENT voor een tabel `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT voor een tabel `flights`
 --
 ALTER TABLE `flights`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `travel plans`
+-- AUTO_INCREMENT voor een tabel `travel plans`
 --
 ALTER TABLE `travel plans`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `userinformation`
+-- AUTO_INCREMENT voor een tabel `userinformation`
 --
 ALTER TABLE `userinformation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
