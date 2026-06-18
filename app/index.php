@@ -91,7 +91,7 @@ require __DIR__ . "/config/database.php";
             <span class="font-bold">New York</span> - from €599
           </p>
         </div>
-        <a href="travel.html"
+        <a href="travel.php"
           class="bg-[#DDDDDD] rounded-full px-5 py-2 text-center hover:bg-[#CCCCCC] transition w-fit">
           View Deals
         </a>
@@ -109,7 +109,7 @@ require __DIR__ . "/config/database.php";
           <li>Worldwide Destinations</li>
           <li>Premium Jets</li>
         </ul>
-        <a href="private-flights.html"
+        <a href="private-flights.php"
           class="bg-[#DDDDDD] rounded-full px-5 py-2 text-center hover:bg-[#CCCCCC] transition w-fit">
           View our Services
         </a>
@@ -139,7 +139,7 @@ require __DIR__ . "/config/database.php";
         <p class="opensans text-center text-lg font-semibold">
           Save up to 30% on selected all-inclusive summer destinations!
         </p>
-        <a href="all-inclusive.html"
+        <a href="all-inclusive.php"
           class="bg-[#DDDDDD] rounded-full px-5 py-2 text-center hover:bg-[#CCCCCC] transition w-fit">
           See Offers
         </a>
