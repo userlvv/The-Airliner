@@ -29,23 +29,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
-if (isset($_POST['add_item'])) {
-  $destination = $_POST['destination'];
-  $price = $_POST['price'];
-  $table = $_POST['table'];
-  if ($table === 'flights') {
-    $stmt = $pdo->prepare("INSERT INTO flights (destination, price) VALUES (?, ?)");
+  if (isset($_POST['delete_booking'])) {
+    $stmt = $pdo->prepare("DELETE FROM bookings WHERE id = ?");
+    $stmt->execute([$_POST['id']]);
+    header("Location: adminpanel.php");
+    exit;
   }
-  if ($table === 'travel_plans') {
-    $stmt = $pdo->prepare("INSERT INTO `travel plans` (destination, price) VALUES (?, ?)");
+
+  if (isset($_POST['add_item'])) {
+    $destination = $_POST['destination'];
+    $price = $_POST['price'];
+    $table = $_POST['table'];
+    if ($table === 'flights') {
+      $stmt = $pdo->prepare("INSERT INTO flights (destination, price) VALUES (?, ?)");
+    }
+    if ($table === 'travel_plans') {
+      $stmt = $pdo->prepare("INSERT INTO `travel plans` (destination, price) VALUES (?, ?)");
+    }
+    if ($table === 'all_inclusive') {
+      $stmt = $pdo->prepare("INSERT INTO `all-inclusive` (destination, price) VALUES (?, ?)");
+    }
+    $stmt->execute([$destination, $price]);
+    header("Location: adminpanel.php");
+    exit;
   }
-  if ($table === 'all_inclusive') {
-    $stmt = $pdo->prepare("INSERT INTO `all-inclusive` (destination, price) VALUES (?, ?)");
-  }
-  $stmt->execute([$destination, $price]);
-  header("Location: adminpanel.php");
-  exit;
-}
 }
 
 $stmt = $pdo->prepare("SELECT * FROM `flights`");
@@ -59,7 +66,12 @@ $travelplans = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt = $pdo->prepare("SELECT * FROM `all-inclusive`");
 $stmt->execute();
 $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $pdo->prepare("SELECT bookings.*, userinformation.name, userinformation.email FROM bookings JOIN userinformation ON bookings.user_id = userinformation.id ORDER BY booking_date DESC");
+$stmt->execute();
+$allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -213,6 +225,43 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
     </div>
+
+    <div class="justify-center flex px-4 mt-12">
+      <div class="opacity-80 max-w-4xl w-full rounded-3xl p-6 bg-[#EEEEEE]">
+        <h2 class="text-2xl font-bold mb-2">Customer Bookings</h2>
+        <div class="grid grid-cols-7 border-b mb-2 font-bold pb-2 border-gray-400 text-sm">
+          <div>ID</div>
+          <div>Customer</div>
+          <div>Destination</div>
+          <div>Type</div>
+          <div>Price</div>
+          <div>Status</div>
+          <div class="text-right">Actions</div>
+        </div>
+        <?php foreach ($allbookings as $b): ?>
+          <div class="grid items-center grid-cols-7 py-2 border-b border-gray-300 text-sm">
+            <div><?= $b['id'] ?></div>
+            <div>
+              <?= $b['name'] ?><br>
+              <span class="text-xs text-gray-500"><?= $b['email'] ?></span>
+            </div>
+            <div><?= $b['destination'] ?></div>
+            <div><?= $b['item_type'] ?></div>
+            <div>€<?= $b['price'] ?></div>
+            <div><?= $b['status'] ?></div>
+            <div class="flex gap-2 justify-end">
+              <form method="POST">
+                <input type="hidden" name="id" value="<?= $b['id'] ?>">
+                <button type="submit" name="delete_booking" class="text-sm px-3 py-1 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
     <div class="w-full max-w-4xl mx-auto bg-[#EEEEEE] p-6 rounded-3xl mt-12 opacity-80">
       <h2 class="text-2xl font-bold mb-4">Add Item</h2>
 
