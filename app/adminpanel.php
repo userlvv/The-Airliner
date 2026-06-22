@@ -92,7 +92,7 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
   <header>
 
   </header>
@@ -108,14 +108,14 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="mb-6 flex justify-center gap-4"></div>
         <div id="flights" class="tab-content">
           <h2 class="text-2xl font-bold mb-2">Flights</h2>
-          <div class="grid grid-cols-4 mb-2 pb-2 border-b border-gray-400 font-bold">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-2 pb-2 border-b border-gray-400 font-bold text-sm">
             <div>ID</div>
             <div>Destination</div>
             <div>Price</div>
             <div class="text-right">Actions</div>
           </div>
           <?php foreach ($flights as $f): ?>
-            <div class="items-center grid grid-cols-4 border-b border-gray-300 py-2">
+            <div class="items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-b border-gray-300 py-2 text-sm">
               <div>
                 <?= $f['id'] ?>
               </div>
@@ -149,14 +149,14 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="flex justify-center gap-4 mb-6"></div>
         <div id="travelplans" class="tab-content">
           <h2 class="text-2xl font-bold mb-2">Travel Plans</h2>
-          <div class="grid grid-cols-4 font-bold border-b border-gray-400 pb-2 mb-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 font-bold border-b border-gray-400 pb-2 mb-2 text-sm">
             <div>ID</div>
             <div>Destination</div>
             <div>Price</div>
             <div class="text-right">Actions</div>
           </div>
           <?php foreach ($travelplans as $tp): ?>
-            <div class="grid grid-cols-4 py-2 border-b border-gray-300 items-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-2 border-b border-gray-300 items-center text-sm">
               <div>
                 <?= $tp['id'] ?>
               </div>
@@ -190,14 +190,14 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="flex mb-6 justify-center gap-4"></div>
         <div id="allinclusive" class="tab-content">
           <h2 class="text-2xl font-bold mb-2">All Inclusive</h2>
-          <div class="grid grid-cols-4 border-b mb-2 font-bold pb-2 border-gray-400">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-b mb-2 font-bold pb-2 border-gray-400 text-sm">
             <div>ID</div>
             <div>Destination</div>
             <div>Price</div>
             <div class="text-right">Actions</div>
           </div>
           <?php foreach ($allinclusive as $ai): ?>
-            <div class="grid items-center grid-cols-4 py-2 border-b border-gray-300">
+            <div class="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-2 border-b border-gray-300 text-sm">
               <div>
                 <?= $ai['id'] ?>
               </div>
@@ -229,7 +229,7 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="justify-center flex px-4 mt-12">
       <div class="opacity-80 max-w-4xl w-full rounded-3xl p-6 bg-[#EEEEEE]">
         <h2 class="text-2xl font-bold mb-2">Customer Bookings</h2>
-        <div class="grid grid-cols-7 border-b mb-2 font-bold pb-2 border-gray-400 text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-7 border-b mb-2 font-bold pb-2 border-gray-400 text-sm">
           <div>ID</div>
           <div>Customer</div>
           <div>Destination</div>
@@ -239,7 +239,7 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="text-right">Actions</div>
         </div>
         <?php foreach ($allbookings as $b): ?>
-          <div class="grid items-center grid-cols-7 py-2 border-b border-gray-300 text-sm">
+          <div class="grid items-center grid-cols-1 sm:grid-cols-3 md:grid-cols-7 py-2 border-b border-gray-300 text-sm">
             <div><?= $b['id'] ?></div>
             <div>
               <?= $b['name'] ?><br>

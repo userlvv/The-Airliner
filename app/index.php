@@ -24,7 +24,7 @@ require __DIR__ . "/config/database.php";
   </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body>
   <header>
     <nav
       class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
