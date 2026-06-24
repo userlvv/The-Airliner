@@ -1,9 +1,9 @@
 <?php
 session_start();
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /../login.php");
     exit;
 }
 
@@ -31,19 +31,19 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <nav
             class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
             <h2 class="montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
-                <a href="index.php">The Airliner</a>
+                <a href="/../index.php">The Airliner</a>
             </h2>
             <div class="flex-1 flex flex-wrap justify-center items-center gap-3 lg:gap-8 w-full">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="index.php">Home</a>
+                    href="/../index.php">Home</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="travel.php">Travel</a>
+                    href="/../travel.php">Travel</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="all-inclusive.php">All inclusive</a>
+                    href="/../all-inclusive.php">All inclusive</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="flights.php">Flights</a>
+                    href="/../flights.php">Flights</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="private-flights.php">Private flights</a>
+                    href="/../private-flights.php">Private flights</a>
             </div>
             <div class="lg:ml-auto">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans" href="userpanel.php">
@@ -103,7 +103,7 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <p class="opensans max-w-sm">
                     Luxury travel experiences, exclusive destinations and premium flights tailored for every journey.
                 </p>
-                <a href="adminlogin.php" class="mt-4">Admin</a>
+                <a href="/../admin/adminlogin.php" class="mt-4">Admin</a>
             </div>
             <div class="flex flex-col gap-3 items-center lg:items-start">
                 <h3 class="montserrat text-xl font-bold">Contact</h3>

@@ -1,9 +1,9 @@
 <?php
 session_start();
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
+    header("Location: /../login.php");
     exit;
 }
 
@@ -21,11 +21,8 @@ $user = $stmt->fetch();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - The Airliner</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@100..900&family=Open+Sans:wght@300..800&display=swap");
-    </style>
 </head>
 
 <body class="overflow-x-hidden">
@@ -38,13 +35,13 @@ $user = $stmt->fetch();
 
             <div class="flex-1 flex flex-wrap justify-center items-center gap-3 lg:gap-8 w-full">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="index.php">Home</a>
+                    href="/../index.php">Home</a>
                 <a class="bg-[#DDDDDD] rounded-full px-4 py-2 opensans" href="profile.php">Profile</a>
             </div>
 
             <div class="lg:ml-auto">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="logout.php">
+                    href="/../config/logout.php">
                     Logout
                 </a>
             </div>
@@ -88,7 +85,7 @@ $user = $stmt->fetch();
           Luxury travel experiences, exclusive destinations and premium
           flights tailored for every journey.
         </p>
-        <a href="adminlogin.php" class="mt-4">Admin</a>
+        <a href="/../admin/adminlogin.php" class="mt-4">Admin</a>
       </div>
       <div class="flex flex-col gap-3 items-center lg:items-start">
         <h3 class="montserrat text-xl font-bold">Contact</h3>

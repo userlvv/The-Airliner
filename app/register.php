@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $confirm = $_POST["confirm"];
 
   if (empty($name) || empty($email) || empty($password)) {
-    $message = "All fields are required!s";
+    $message = "All fields are required!";
   } elseif ($password !== $confirm) {
     $message = "Passwords do not match.";
   } else {
@@ -23,9 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $message = "Email already registered.";
     }
 
-    $stmt = $pdo->prepare("
-            INSERT INTO userinformation (name, email, password_hash) VALUES (?, ?, ?)
-        ");
+    $stmt = $pdo->prepare("INSERT INTO userinformation (name, email, password_hash) VALUES (?, ?, ?)");
     $stmt->execute([$name, $email, $passwordHash]);
     $message = "Registration successful!";
 

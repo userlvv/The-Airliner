@@ -1,8 +1,6 @@
 <?php
 session_start();
 require __DIR__ . "/config/database.php";
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,17 +9,8 @@ require __DIR__ . "/config/database.php";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Airliner</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap");
-  </style>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap");
-  </style>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap");
-  </style>
 </head>
 
 <body>
@@ -42,11 +31,12 @@ require __DIR__ . "/config/database.php";
           href="flights.php">Flights</a>
         <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
           href="private-flights.php">Private flights</a>
+        <button id="themeToggle">Dark Mode</button>
       </div>
 
       <div class="lg:ml-auto">
         <?php if (isset($_SESSION["user_id"])): ?>
-          <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans" href="userpanel.php">
+          <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans" href="/user/userpanel.php">
             User Panel
           </a>
         <?php else: ?>
@@ -156,7 +146,7 @@ require __DIR__ . "/config/database.php";
           Luxury travel experiences, exclusive destinations and premium
           flights tailored for every journey.
         </p>
-        <a href="adminlogin.php" class="mt-4">Admin</a>
+        <a href="admin/adminlogin.php" class="mt-4">Admin</a>
       </div>
       <div class="flex flex-col gap-3 items-center lg:items-start">
         <h3 class="montserrat text-xl font-bold">Contact</h3>

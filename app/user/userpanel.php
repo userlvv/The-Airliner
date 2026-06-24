@@ -1,6 +1,6 @@
 <?php
 session_start();
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 
 ?>
 <!doctype html>
@@ -10,11 +10,8 @@ require __DIR__ . "/config/database.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Airliner</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@100..900&family=Open+Sans:wght@300..800&display=swap");
-    </style>
 </head>
 
 <body class="overflow-x-hidden">
@@ -22,22 +19,22 @@ require __DIR__ . "/config/database.php";
         <nav
             class="bg-[#EEEEEE] rounded-3xl opacity-80 flex flex-col lg:flex-row mx-4 lg:mx-8 mt-4 px-4 lg:px-8 py-4 items-center gap-4 lg:gap-0">
             <h2 class="montserrat font-bold text-2xl lg:text-lg text-center lg:text-left">
-                <a href="index.php">The Airliner</a>
+                <a href="/../index.php">The Airliner</a>
             </h2>
             <div class="flex-1 flex flex-wrap justify-center items-center gap-3 lg:gap-8 w-full">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="index.php">Home</a>
+                    href="/../index.php">Home</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="travel.php">Travel</a>
+                    href="/../travel.php">Travel</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="all-inclusive.php">All inclusive</a>
+                    href="/../all-inclusive.php">All inclusive</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="flights.php">Flights</a>
+                    href="/../flights.php">Flights</a>
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
-                    href="private-flights.php">Private flights</a>
+                    href="/../private-flights.php">Private flights</a>
             </div>
             <div class="lg:ml-auto">
-                <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans" href="logout.php">
+                <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans" href="/../config/logout.php">
                     Logout
                 </a>
             </div>
@@ -92,7 +89,7 @@ require __DIR__ . "/config/database.php";
                 <p class="opensans max-w-sm">
                     Luxury travel experiences, exclusive destinations and premium flights tailored for every journey.
                 </p>
-                <a href="adminlogin.php" class="mt-4">Admin</a>
+                <a href="/../admin/adminlogin.php" class="mt-4">Admin</a>
             </div>
             <div class="flex flex-col gap-3 items-center lg:items-start">
                 <h3 class="montserrat text-xl font-bold">Contact</h3>
