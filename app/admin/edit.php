@@ -4,7 +4,7 @@ if (!isset($_SESSION["admin_id"])) {
   header("Location: adminlogin.php");
   exit;
 }
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 
 $id = $_GET['id'];
 if (!$id) {
@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <title>The Airliner</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/../css/style.css" />
 </head>
 
 <body class="items-center flex h-screen bg-[#87CEFA] justify-center">

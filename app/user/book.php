@@ -1,8 +1,8 @@
 <?php
 session_start();
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /../login.php");
     exit();
 }
 
@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if ($item_type === 'flight') {
-        $redirect = 'flights.php';
+        $redirect = '/../flights.php';
     } elseif ($item_type === 'all_inclusive') {
-        $redirect = 'all-inclusive.php';
+        $redirect = '/../all-inclusive.php';
     } elseif ($item_type === 'travelplan') {
-        $redirect = 'travel.php';
+        $redirect = '/../travel.php';
     } else {
-        $redirect = 'private-flights.php';
+        $redirect = '/../private-flights.php';
     }
 
     header("Location: $redirect?success=1");

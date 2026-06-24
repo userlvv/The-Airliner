@@ -14,17 +14,8 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Airliner</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap");
-  </style>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,1００..9００;1,1００..9００&family=Slabo+27px&display=swap");
-  </style>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+27px&family=Tangerine:wght@400;700&display=swap");
-  </style>
 </head>
 
 <body class="overflow-x-hidden">
@@ -72,15 +63,18 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </p>
       </div>
     </section>
+
     <?php if (isset($_GET['success'])): ?>
       <div class="bg-green-200 text-green-800 rounded-full px-6 py-3 text-center max-w-md mx-auto mb-6">
         Booking confirmed!
       </div>
     <?php endif; ?>
+
     <section class="px-4 lg:px-8 py-12">
       <input type="text" id="search" onkeyup="zoek()" placeholder="Search for destinations..."
         class="bg-[#EEEEEE] opacity-80 rounded-full px-6 py-3 opensans block mx-auto mb-8 w-full max-w-md">
       <div class="mx-auto gap-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1" id="grid">
+
         <?php foreach ($flights as $f): ?>
           <div class="flex flex-col rounded-3xl opacity-80 bg-[#EEEEEE]">
             <!--<img src="" class="h-64 w-full object-cover" />-->
@@ -121,7 +115,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
           Luxury travel experiences, exclusive destinations and premium
           flights tailored for every journey.
         </p>
-        <a href="adminlogin.php" class="mt-4">Admin</a>
+        <a href="admin/adminlogin.php" class="mt-4">Admin</a>
       </div>
       <div class="flex flex-col gap-3 items-center lg:items-start">
         <h3 class="font-montserrat text-xl font-bold">Contact</h3>

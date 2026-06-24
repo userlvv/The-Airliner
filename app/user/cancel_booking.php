@@ -1,9 +1,9 @@
 <?php
 session_start();
-require __DIR__ . "/config/database.php";
+require __DIR__ . "/../config/database.php";
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /../login.php");
     exit;
 }
 
@@ -13,5 +13,5 @@ $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("DELETE FROM bookings WHERE id = ? AND user_id = ?");
 $stmt->execute([$booking_id, $user_id]);
 
-header("Location: mybookings.php");
+header("Location: /../user/mybookings.php");
 exit;
