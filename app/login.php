@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password_hash'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
-        header("Location: userpanel.php");
+        header("Location: user/userpanel.php");
         exit;
     } else {
         $error = "Verkeerde email of wachtwoord";
@@ -65,7 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             href="private-flights.php"
             >Private flights</a
           >
+          <button class="ml-12" id="themeToggle">Theme Switch</button>
         </div>
+
         <div class="lg:ml-auto">
           <a
             class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
@@ -119,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Luxury travel experiences, exclusive destinations and premium
             flights tailored for every journey.
           </p>
-          <a href="adminlogin.php" class="mt-4">Admin</a>
+          <a href="admin/adminlogin.php" class="mt-4">Admin</a>
         </div>
         <div class="flex flex-col gap-3 items-center lg:items-start">
           <h3 class="montserrat text-xl font-bold">Contact</h3>
@@ -138,5 +140,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </p>
       </div>
     </footer>
+    <script src="js/themes.js"></script>
   </body>
 </html>

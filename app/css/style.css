@@ -18,8 +18,10 @@
 .lato {
     font-family: 'Lato', sans-serif;
 }
+
 body {
     background-color: #87CEFA;
+    transition: background-color 0.3s ease;
 }
 
 body.dark {

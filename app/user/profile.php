@@ -38,12 +38,14 @@ $user = $stmt->fetch();
                     href="/../index.php">Home</a>
                 <a class="bg-[#DDDDDD] rounded-full px-4 py-2 opensans" href="profile.php">Profile</a>
             </div>
-
+            
             <div class="lg:ml-auto">
                 <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
                     href="/../config/logout.php">
                     Logout
                 </a>
+                <button class="ml-12" id="themeToggle">Theme Switch</button>
+
             </div>
         </nav>
     </header>
@@ -103,6 +105,7 @@ $user = $stmt->fetch();
       </p>
     </div>
   </footer>
+  <script src="/../js/themes.js"></script>
 </body>
 
 </html>

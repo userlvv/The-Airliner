@@ -36,6 +36,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
           href="flights.php">Flights</a>
         <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
           href="private-flights.php">Private flights</a>
+        <button class="ml-12" id="themeToggle">Theme Switch</button>
       </div>
 
       <div class="lg:ml-auto">
@@ -180,7 +181,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
     }
   </script>
-
+<script src="js/themes.js"></script>
 </body>
 
 </html>

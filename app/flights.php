@@ -36,6 +36,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
           href="flights.php">Flights</a>
         <a class="bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-2 opensans"
           href="private-flights.php">Private flights</a>
+        <button class="ml-12" id="themeToggle">Theme Switch</button>
       </div>
 
       <div class="lg:ml-auto">
@@ -95,7 +96,8 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <input type="hidden" name="item_id" value="<?= $f['id'] ?>">
                 <input type="hidden" name="destination" value="<?= $f['destination'] ?>">
                 <input type="hidden" name="price" value="<?= $f['price'] ?>">
-                <button type="submit" class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
+                <button type="submit"
+                  class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
                   Book Flight
                 </button>
               </form>
@@ -143,7 +145,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
     }
   </script>
-
+  <script src="js/themes.js"></script>
 </body>
 
 </html>

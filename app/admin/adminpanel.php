@@ -273,6 +273,7 @@ $allbookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <footer>
 
   </footer>
+  <script src="/../js/themes.js"></script>
 </body>
 
 </html>
