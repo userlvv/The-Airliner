@@ -94,6 +94,7 @@ $flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <form action="book.php" method="POST">
                 <input type="hidden" name="item_type" value="flight">
                 <input type="hidden" name="item_id" value="<?= $f['id'] ?>">
+                <input type="hidden" name="destination" value="<?= $f['destination'] ?>">
                 <button type="submit"
                   class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
                   Book Flight

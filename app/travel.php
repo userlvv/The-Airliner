@@ -90,6 +90,7 @@ $travelplans = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <form action="book.php" method="POST">
                 <input type="hidden" name="item_type" value="travelplan">
                 <input type="hidden" name="item_id" value="<?= $tp['id'] ?>">
+                <input type="hidden" name="destination" value="<?= $tp['destination'] ?>">
                 <button type="submit" class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
                   Book Travel Plan
                 </button>

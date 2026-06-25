@@ -92,6 +92,7 @@ $allinclusive = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <form action="book.php" method="POST">
                 <input type="hidden" name="item_type" value="all_inclusive">
                 <input type="hidden" name="item_id" value="<?= $ai['id'] ?>">
+                <input type="hidden" name="destination" value="<?= $ai['destination'] ?>">
                 <button type="submit" class="w-full transition bg-[#DDDDDD] hover:bg-[#CCCCCC] rounded-full py-3 text-center">
                   Book Vacation
                 </button>

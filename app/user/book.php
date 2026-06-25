@@ -10,11 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['user_id'];
     $item_type = $_POST['item_type'];
     $item_id = $_POST['item_id'];
+    $destination = $_POST['destination'];
 
-    $stmt = $pdo->prepare("SELECT destination, price FROM flights WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT price FROM flights WHERE id = ?");
     $stmt->execute([$item_id]);
     $item = $stmt->fetch(PDO::FETCH_ASSOC);
-    $destination = $item['destination'];
     $price = $item['price'];
 
 
@@ -35,5 +35,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: $redirect?success=1");
 
     exit;
-
 }
