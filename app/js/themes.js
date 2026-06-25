@@ -13,3 +13,17 @@ toggleButton.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.remove("hidden");
+  } else {
+    scrollBtn.classList.add("hidden");
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}

@@ -11,7 +11,7 @@ require __DIR__ . "/config/database.php";
   <title>The Airliner</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
 </head>
 
 <body>
@@ -165,6 +165,13 @@ require __DIR__ . "/config/database.php";
       </p>
     </div>
   </footer>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()"
+    class="fixed bottom-6 right-6 bg-[#EEEEEE] hover:bg-[#CCCCCC] transition rounded-full px-4 py-3 opacity-80 hidden">
+    Scrol naar boven
+  </button>
+
   <script src="js/themes.js"></script>
+
 </body>
 </html>
